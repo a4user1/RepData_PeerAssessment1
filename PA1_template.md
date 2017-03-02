@@ -10,7 +10,7 @@ library(ggplot2)
 total.steps <- tapply(data$steps, data$date, FUN=sum, na.rm=TRUE)
 qplot(total.steps, binwidth=1000, xlab="total number of steps taken each day")
 
-plot of chunk Rplot1
+https://github.com/a4user1/RepData_PeerAssessment1/blob/a4user1-patch-1/figure/Rplot1.png
 
 mean(total.steps, na.rm=TRUE)
 
@@ -30,7 +30,7 @@ ggplot(data=averages, aes(x=interval, y=steps)) +
     xlab("5-minute interval") +
     ylab("average number of steps taken")
 
-plot of chunk Rplot2
+https://github.com/a4user1/RepData_PeerAssessment1/blob/a4user1-patch-1/figure/Rplot2.png
 
 On average across all the days in the dataset, the 5-minute interval contains the maximum number of steps?
 
@@ -70,7 +70,7 @@ Now, using the filled data set, let's make a histogram of the total number of st
 total.steps <- tapply(filled.data$steps, filled.data$date, FUN=sum)
 qplot(total.steps, binwidth=1000, xlab="total number of steps taken each day")
 
-plot of chunk Rplot3
+https://github.com/a4user1/RepData_PeerAssessment1/blob/a4user1-patch-1/figure/Rplot3.png
 
 mean(total.steps)
 
@@ -103,4 +103,4 @@ averages <- aggregate(steps ~ interval + day, data=filled.data, mean)
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
     xlab("5-minute interval") + ylab("Number of steps")
 
-plot of chunk Rplot4
+https://github.com/a4user1/RepData_PeerAssessment1/blob/a4user1-patch-1/figure/Rplot4.png
