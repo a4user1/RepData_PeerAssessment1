@@ -31,6 +31,11 @@ averages[which.max(averages$steps),]
 missing <- is.na(data$steps)
 # How many missing
 table(missing)
+missing
+FALSE  TRUE
+15264  2304
+All of the missing values are filled in with mean value for that 5-minute interval.
+
 # Replace each missing value with the mean value of its 5-minute interval
 fill.value <- function(steps, interval) {
   filled <- NA
@@ -43,6 +48,7 @@ fill.value <- function(steps, interval) {
 filled.data <- data
 filled.data$steps <- mapply(fill.value, filled.data$steps, filled.data$interval)
 
+# Now, using the filled data set, let's make a histogram of the total number of steps taken each day and calculate the mean and median total number of steps.
 total.steps <- tapply(filled.data$steps, filled.data$date, FUN=sum)
 qplot(total.steps, binwidth=1000, xlab="total number of steps taken each day")
 mean(total.steps)
